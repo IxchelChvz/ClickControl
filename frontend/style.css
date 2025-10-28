@@ -1,6 +1,26 @@
 body {
     margin: 0;
     background-color: rgb(22, 21, 21);
+    font-family: 'N27-regular', sans-serif;
+}
+
+.cursor {
+    display: inline-block;
+    width: 8px;
+    height: 1em;
+    background-color: white; 
+    margin-left: 2px;
+    animation: blink 0.3s steps(1) infinite;
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
+}
+@font-face {
+    font-family: 'N27-regular';
+    src: url('fonts/n27-regular.woff') format('truetype');
+    font-weight: normal;
+    font-style: normal;
 }
 .inicio {
     display: flex;
@@ -20,7 +40,6 @@ body {
 } 
 .button-navbar {
     border-radius: 15px;
-    border-color: rgb(255, 255, 255);
     border-style: solid;
     width: 50%;
     background-color: rgb(255, 255, 255);
@@ -31,12 +50,16 @@ body {
 .logo {
     width: 300px;
 }
-.portada {
-    text-align: center;
+.contenedor-portada{
+    text-align: left;
+    width: 800px;
+    height: 400px;
+    padding: 50px;
 }
 span {
     color: white;
-    font-size: 50px;
+    font-size: 70px;
     text-align: center;
-    
+    justify-content: center;
+
 }

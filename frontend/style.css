@@ -1,0 +1,65 @@
+body {
+    margin: 0;
+    background-color: rgb(22, 21, 21);
+    font-family: 'N27-regular', sans-serif;
+}
+
+.cursor {
+    display: inline-block;
+    width: 8px;
+    height: 1em;
+    background-color: white; 
+    margin-left: 2px;
+    animation: blink 0.3s steps(1) infinite;
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
+}
+@font-face {
+    font-family: 'N27-regular';
+    src: url('fonts/n27-regular.woff') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+.inicio {
+    display: flex;
+}
+.navbar{
+    overflow: hidden;
+    width: 1100px;
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    button:hover
+     {
+      background-color: #ffffff8f;
+    }
+} 
+.button-navbar {
+    border-radius: 15px;
+    border-style: solid;
+    width: 50%;
+    background-color: rgb(255, 255, 255);
+    height: 50px;
+    color: rgb(51, 50, 50);
+    margin: 5px;
+}
+.logo {
+    width: 300px;
+}
+.contenedor-portada{
+    text-align: left;
+    width: 800px;
+    height: 400px;
+    padding: 50px;
+}
+span {
+    color: white;
+    font-size: 70px;
+    text-align: center;
+    justify-content: center;
+
+}

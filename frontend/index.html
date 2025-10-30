@@ -9,17 +9,21 @@
 </head>
 <body>
     <div class="inicio">
-        <img class="logo" src="images/logonegativo.svg" alt="logo en negativo">
+        <video autoplay muted loop playsinline id="video-fondo">
+            <source src="images/1992-153555258_medium.mp4" type="video/mp4">
+            Tu navegador no soporta videos en HTML5.
+        </video>
         <nav class="navbar">
-            <button type="button" class="button-navbar">Conocenos</button>
+            <img class="logo" src="images/clickcontrol.svg" alt="logo en negativo">
+            <button type="button" class="button-navbar"><a href="aboutUs.html">About Us</a></button>
             <button type="button" class="button-navbar">Eventos</button>
             <button type="button" class="button-navbar">Contacto</button>
         </nav>
-    </div>
-    <div class="contenedor-portada">
-        <div class="portada">
-            <span id="texto"></span>
-            <script src="script.js"></script>
+        <div class="contenedor-portada">
+            <div class="portada">
+                <span id="texto"></span>
+                <script src="script.js"></script>
+            </div>
         </div>
     </div>
 </body>

@@ -1,9 +1,27 @@
 body {
     margin: 0;
-    background-color: rgb(22, 21, 21);
+    background-image: url();
     font-family: 'N27-regular', sans-serif;
 }
-
+#video-fondo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; 
+  z-index: -1; 
+  filter: brightness(50%); 
+}
+.portada {
+  position: relative;
+  z-index: 1; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; 
+  text-align: center;
+}
 .cursor {
     display: inline-block;
     width: 8px;
@@ -22,44 +40,60 @@ body {
     font-weight: normal;
     font-style: normal;
 }
+@font-face {
+    font-family: 'Poppins ExtraBold';
+    src: url('fonts/Poppins-ExtraBold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
 .inicio {
-    display: flex;
+  display: flex;
+  flex-wrap: wrap;
+ 
 }
 .navbar{
     overflow: hidden;
-    width: 1100px;
+    background-color: rgba(0, 0, 0, 0.753);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    height: 620px;
     display: flex;
-    justify-content: space-around;
-    padding: 10px 20px;
     font-size: 16px;
-    border-radius: 5px;
+    margin: 15px 20px;
+    border-radius: 20px;
     button:hover
      {
       background-color: #ffffff8f;
     }
 } 
 .button-navbar {
-    border-radius: 15px;
-    border-style: solid;
-    width: 50%;
-    background-color: rgb(255, 255, 255);
+    font-family: 'Poppins ExtraBold', sans-serif;
+    border-radius: 10px;
+    border-style: none;
+    width: 90%;
+    background-color: rgb(201, 247, 247);
     height: 50px;
     color: rgb(51, 50, 50);
-    margin: 5px;
+    margin: 2px;
+    font-size: 15px;
+}
+a {
+    text-decoration: none;
+    color: rgb(51, 50, 50);
 }
 .logo {
-    width: 300px;
+    width: 280px;
 }
 .contenedor-portada{
     text-align: left;
     width: 800px;
-    height: 400px;
-    padding: 50px;
 }
 span {
     color: white;
     font-size: 70px;
-    text-align: center;
+    text-align: left;
     justify-content: center;
 
 }

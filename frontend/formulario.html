@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Formulario de Inscripción</title>
+<link rel="stylesheet" href="formulario.css">
+
+</head>
+<body>
+
+<form>
+    <header>
+        <h2>Formulario de Inscripción</h2>
+        <p>Registro de participantes para eventos y talleres</p>
+    </header>
+
+    <fieldset>
+        <legend>Datos Personales</legend>
+        <div class="grupo">
+            <div>
+                <label>Nombre completo *</label>
+                <input type="text" name="nombre" required>
+            </div>
+            <div>
+                <label>Correo electrónico *</label>
+                <input type="email" name="email" required>
+            </div>
+            <div>
+                <label>Teléfono *</label>
+                <input type="tel" name="telefono" placeholder="+34 600 000 000" required>
+            </div>
+            <div>
+                <label>Ciudad / País</label>
+                <input type="text" name="ciudad">
+            </div>
+        </div>
+    </fieldset>
+
+    <fieldset>
+        <legend>Información del Evento</legend>
+        <div class="grupo">
+            <div>
+                <label>Tipo de evento *</label>
+                <select name="tipo_evento" required>
+                    <option value="">Seleccione...</option>
+                    <option value="Conferencia">Conferencia de programadores Web</option>
+                    <option value="Seminario">Seminario de IA</option>
+                    <option value="Hackathon">Evento Hackathon</option>
+                    <option value="Feria tecnológica">Feria tecnológica</option>
+                    
+                </select>
+            </div>
+            <div>
+                <label>Fecha seleccionada *</label>
+                <input type="date" name="fecha" required>
+            </div>
+        </div>
+
+        <label>Intereses o área profesional</label>
+        <div class="opciones">
+            <label><input type="checkbox" name="interes" value="Programación Web"> Programación Web</label>
+            <label><input type="checkbox" name="interes" value="Inteligencia Artificial"> Inteligencia Artificial</label>
+            <label><input type="checkbox" name="interes" value="Gestión de Eventos"> Gestión de Eventos</label>
+            <label><input type="checkbox" name="interes" value="Feria tecnologica"> Feria tecnologica</label>
+            
+        </div>
+    </fieldset>
+
+    <fieldset>
+        <legend>Comentarios adicionales</legend>
+        <label>Cuéntanos brevemente tus expectativas o necesidades especiales:</label>
+        <textarea name="comentarios" rows="4" placeholder="Escribe aquí tus comentarios..."></textarea>
+    </fieldset>
+
+    <div class="botones">
+        <button type="reset">Limpiar</button>
+        <button type="submit">Enviar inscripción</button>
+    </div>
+</form>
+
+</body>
+</html>

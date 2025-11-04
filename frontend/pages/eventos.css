@@ -1,0 +1,141 @@
+@font-face {
+    font-family: 'N27-regular';
+    src: url('fonts/n27-regular.woff') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Poppins ExtraBold';
+    src: url('fonts/Poppins-ExtraBold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+body {
+    margin: 0;
+    font-family: 'N27-regular', sans-serif;
+    background: linear-gradient(135deg, #000000fd, #114c4d);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+h2 > header  {
+    margin: 0;
+    padding: 0;
+    color: rgb(255, 7, 7);
+}
+header {
+    font-family: 'N27-regular', sans-serif;
+    color: white;
+    text-align: center;
+    height: 100vh;
+    width: 84.4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url(../images/pexels-zhuhehuai-716276.jpg);
+    background-size: cover;
+    background-position: center;
+}
+.titulo-contenedor{
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.644);
+    padding: 180px 250px;
+    font-size: 30px;
+    
+}
+.eventos-contenedor{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+    padding: 10vh 0;
+}
+img {
+    width: 300px;
+    height: 300px;
+}
+.items-eventos {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 600px;
+    text-align: center;
+    margin: 15px;
+    color: rgb(255, 255, 255);
+    padding: 0 50px;
+    box-shadow: 0 4px 15px #000000;
+    font-family: 'Poppins ExtraBold', 'N27-regular', sans-serif;
+}
+.items-eventos:hover {
+    transform: scale(1.05);
+    transition: all 0.3s ease;
+}
+
+.evento-blur {
+  position: relative;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+}
+.evento-blur::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: inherit;
+  background-size: inherit;
+  background-position: inherit;
+  filter: blur(1.5px);
+  transform: scale(1.1);
+  z-index: 0;
+}
+.evento-blur > * {
+  position: relative;
+  z-index: 1;
+}
+.button-contenedor {
+    background: #ED0A78;
+    border: none;
+    color: white;
+    padding: 14px 28px;
+    font-size: 16px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px #000000;
+}
+.button-contenedor:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px #ED0A78;
+}
+#conferencia {
+    background-image: url(../images/pexels-jibarofoto-2774556.jpg);
+    background-size: cover;
+}
+#seminario{
+    background-image: url(../images/pexels-cottonbro-6153354.jpg);
+    background-size: cover;
+}
+#hackathon{
+    background-image: url(../images/pexels-sora-shimazaki-5935788.jpg);
+    background-size: cover;
+}
+#feria{
+    background-image: url(../images/pexels-a-darmel-7862597.jpg);
+    background-size: cover;
+}
+.formulario-contenedor{
+    padding: 500px 0;
+}
+.footer-contenedor{
+    text-align: center;
+    color: white;
+    background-color: rgb(23, 26, 26);
+    height: 200px;
+}

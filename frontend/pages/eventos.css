@@ -37,6 +37,9 @@ header {
     background-image: url(../images/pexels-zhuhehuai-716276.jpg);
     background-size: cover;
     background-position: center;
+    mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+    padding: 0  0 200px 0;
 }
 .titulo-contenedor{
     overflow: hidden;
@@ -53,7 +56,7 @@ header {
     margin: 0 auto;
     justify-content: center;
     align-items: center;
-    padding: 10vh 0;
+    padding: 15vh 0;
 }
 img {
     width: 300px;
@@ -72,6 +75,7 @@ img {
     padding: 0 50px;
     box-shadow: 0 4px 15px #000000;
     font-family: 'Poppins ExtraBold', 'N27-regular', sans-serif;
+   
 }
 .items-eventos:hover {
     transform: scale(1.05);

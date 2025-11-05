@@ -3,42 +3,67 @@
 $servername = "localhost"; 
 $username = "root";  
 $password = "";
-$dbname = "evento";
-//intenta abrir la conexion con los datos//
-$conn = new mysqli($servername, $username, $password, $database);
-//comprueba si la conexion fallo//
+$dbname = "eventos";
+
+
+
+if (isset($_POST["nombre"])&& isset($_POST["eventos"]) &&
+    isset($_POST["correo"]) && isset($_POST["telefono"]) &&
+    isset($_POST["fecha"]) && isset($_POST["localidad"])
+    ) {
+
+
+    $nombre = $_POST["nombre"];
+	$fecha = $_POST["fecha"];
+    $eventos = $_POST["eventos"];
+    $correo = $_POST["correo"];
+    $localidad = $_POST["localidad"];
+    $telefono = $_POST["telefono"];
+} else {
+    $nombre = "";
+    $eventos = "";
+    $fecha = "";
+    $correo = "";
+    $localidad = "";
+    $telefono = "";
+}
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
 if ($conn->connect_error) {
-    die("error de conexion:" . $conn->connecte_error);
-}
-//recibir los datos de el formulario//
 
-$id_usuario = $_POST['id_usuario'];
-$nombre = $_POST['nombre_completo'];
-$evento = $_POST['tipo_de_evento'];
-$correo = $_POST['correo'];
-$telefono = $POST['telefono'];
-$localidad = $POST['localidad'];
-$fecha_inicio = $POST['fecha_inicio'];
-
-//preparar y ejecutar la consulta SQL//
-//para insertar la informcion en la base de datos//
-$sql = "INSERT INT usuarios (id_usuario,nombre,evento,telefono,correo,localidad,fecha_inicio)VALUES ('$id_usuario', '$nombre', '$evento', '$telefono', '$correo', '$localidad', '$fecha_inicio')";
-
-//ejecuta la consulta si devuelve true significa que le inserte fue exitoso//
-
-if ($conn->query($sql) === TRUE){
-    echo "<h3>Datos guardados correctamente:</h3>";
-    echo "<p> id: $id_usuario</p>";
-    echo "<p> nombre completo: $nombre</p>";
-    echo "<p> evento: $evento</p>";
-    echo "<p> telefono: $telefono</p>";
-    echo "<p> correo: $correo</p>";
-    echo "<p> localidad: $localidad</p>";
-    echo "<p> fecha_inicio: $fecha_inicio</p>";
-}else{
-    echo "error al guardar: " . $conn->error;
+die("Error de conexión: " . $conn->connect_error);
 }
 
-//cerrar conexion//
-$conn->close()
+
+if ($nombre === "" || $correo === "" || $eventos === "" || $telefono === "" ||$fecha === "" || $localidad === "") {
+	die("Todos los campos son obligatorios");
+}
+
+
+echo "Valor del evento recibido: " . $eventos;
+
+$sql = "INSERT INTO inscripciones (nombre, evento,correo,telefono,localidad,fecha_inicio) VALUES ('$nombre','$eventos','$correo','$telefono','$localidad','$fecha')";
+
+if ($conn->query($sql) === TRUE) {
+    echo "<h2>¡Registro correcto!</h2>";
+    echo "<p>Nombre insertado: " . $nombre . "</p>";
+    echo "<p>correo insertado: " . $correo . "</p>";
+    echo "<p>localidad insertado: " . $localidad . "</p>";
+    echo "<p>telefono insertado: " . $telefono . "</p>";
+    echo "<p>fecha de inicio insertada: " . $fecha . "</p>";
+    echo "Valor del evento recibido: " . $eventos;
+    echo "<p>Evento: $eventos</p>";
+} else {
+    echo "Error: " . $conn->error;
+}
+
+
+
+
+$conn->close();
 ?>
+
+
+
+

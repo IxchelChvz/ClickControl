@@ -1,0 +1,145 @@
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: "Segoe UI", Arial, sans-serif;
+        background: linear-gradient(135deg, #000000fd, #114c4d);
+        margin: 0;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+    }
+
+    form {
+        background-color: #ffffff;
+        width: 750px;
+        max-width: 100%;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        overflow: hidden;
+        animation: fadeIn 0.7s ease-in;
+    }
+
+    header {
+        background-color: #000000;
+        color: rgb(255, 255, 255);
+        padding: 25px;
+        text-align: center;
+    }
+
+    header h2 {
+        margin: 0;
+        font-size: 24px;
+    }
+
+    header p {
+        margin: 5px 0 0;
+        font-size: 15px;
+        opacity: 0.9;
+    }
+
+    fieldset {
+        border: none;
+        padding: 25px 35px;
+        border-bottom: 1px solid #050505;
+    }
+
+    legend {
+        font-weight: bold;
+        font-size: 1.1em;
+        color: #000000;
+        border-bottom: 2px solid #ed0a78;
+        display: inline-block;
+        margin-bottom: 15px;
+    }
+
+    .grupo {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+        margin-bottom: 10px;
+    }
+
+    label {
+        font-weight: 600;
+        font-size: 14px;
+        display: block;
+        margin-bottom: 6px;
+        color: #000000;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="date"],
+    select,
+    textarea {
+        width: 100%;
+        padding: 9px 10px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        font-size: 15px;
+        transition: 0.3s ease;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+        border-color: #ffffff;
+        outline: none;
+        box-shadow: 0 0 5px #ed0a78(79, 70, 229, 0.3);
+    }
+
+    textarea {
+        resize: vertical;
+    }
+
+    .opciones {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+        margin-top: 5px;
+    }
+
+    .opciones label {
+        font-weight: normal;
+    }
+
+    .botones {
+        padding: 20px 35px;
+        text-align: center;
+        background-color: #f9fafb;
+    }
+
+    button {
+        background-color: #000000;
+        color: white;
+        border: none;
+        padding: 12px 30px;
+        font-size: 16px;
+        border-radius: 8px;
+        cursor: pointer;
+        margin: 0 5px;
+        transition: 0.3s ease;
+    }
+
+    button:hover {
+        background-color: #ed0a78;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(-20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 650px) {
+        .grupo {
+            grid-template-columns: 1fr;
+        }
+        header h2 {
+            font-size: 20px;
+        }
+    }

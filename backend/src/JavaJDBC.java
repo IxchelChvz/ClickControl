@@ -62,29 +62,45 @@ public class JavaJDBC {
                 System.out.println(" - " + ev + ": " + contadorEventos.get(ev));
             }
 
-            // ======================================================
-            // LISTADO DE PERSONAS POR EVENTO
-            // ======================================================
-            System.out.println("\nListado de personas por evento:");
-            ResultSet listado = statement.executeQuery(
-                    "SELECT evento, nombre, correo, telefono, localidad FROM inscripciones ORDER BY evento, nombre"
-            );
+         // ======================================================
+// LISTADO DE PERSONAS POR EVENTO (FORMATO LIMPIO)
+// ======================================================
+System.out.println("\nListado de personas por evento:");
 
-            String eventoActual = null;
-            while (listado.next()) {
-                String evento = listado.getString("evento");
-                String nombre = listado.getString("nombre");
-                String correo = listado.getString("correo");
-                String telefono = listado.getString("telefono");
-                String localidad = listado.getString("localidad");
+// 1️⃣ Obtener todas las filas de la tabla
+ResultSet listado = statement.executeQuery(
+    "SELECT nombre, correo, telefono, localidad, evento FROM inscripciones ORDER BY evento, nombre"
+);
 
-                if (eventoActual == null || !eventoActual.equals(evento)) {
-                    eventoActual = evento;
-                    System.out.println("\n>> " + eventoActual + " <<");
-                }
-                System.out.println("   " + nombre + " | " + correo + " | " + telefono + " | " + localidad);
-            }
-            listado.close();
+// 2️⃣ Crear una lista de eventos sin repetir
+java.util.Map<String, java.util.List<String>> eventos = new java.util.HashMap<>();
+
+while (listado.next()) {
+    String nombre = listado.getString("nombre");
+    String correo = listado.getString("correo");
+    String telefono = listado.getString("telefono");
+    String localidad = listado.getString("localidad");
+    String eventosTexto = listado.getString("evento");
+
+    // Separar si hay varios eventos con comas
+    String[] eventosSeparados = eventosTexto.split(",");
+
+    for (String ev : eventosSeparados) {
+        ev = ev.trim(); // quitar espacios
+        eventos.putIfAbsent(ev, new java.util.ArrayList<>());
+        eventos.get(ev).add(nombre + " | " + correo + " | " + telefono + " | " + localidad);
+    }
+}
+listado.close();
+
+// 3️⃣ Imprimir cada evento y sus personas
+for (String evento : eventos.keySet()) {
+    System.out.println("\n>> " + evento + " <<");
+    for (String persona : eventos.get(evento)) {
+        System.out.println("   " + persona);
+    }
+}
+
 
             // Cierra la conexión
             connection.close();

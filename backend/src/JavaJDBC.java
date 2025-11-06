@@ -34,6 +34,53 @@ public class JavaJDBC {
         System.out.println(resultSet.getString(2) + " " + resultSet.getInt(1));
     }
 
+    // ======================================================
+// CANTIDAD TOTAL DE PERSONAS INSCRITAS
+// ======================================================
+ResultSet total = statement.executeQuery("SELECT COUNT(*) AS total FROM inscripciones");
+if (total.next()) {
+    System.out.println("\nTotal de personas inscritas: " + total.getInt("total"));
+}
+total.close();
+
+// ======================================================
+// NÚMERO DE PERSONAS INSCRITAS A CADA EVENTO
+// ======================================================
+System.out.println("\nPersonas inscritas por evento:");
+ResultSet porEvento = statement.executeQuery(
+    "SELECT evento, COUNT(*) AS cantidad FROM inscripciones GROUP BY evento ORDER BY evento"
+);
+while (porEvento.next()) {
+    System.out.println(" - " + porEvento.getString("evento") + ": " + porEvento.getInt("cantidad"));
+}
+porEvento.close();
+
+// ======================================================
+// LISTADO DE PERSONAS POR EVENTO
+// ======================================================
+System.out.println("\nListado de personas por evento:");
+ResultSet listado = statement.executeQuery(
+    "SELECT evento, nombre, correo, telefono, localidad, fecha_inicio FROM inscripciones ORDER BY evento, nombre"
+);
+
+String eventoActual = null;
+while (listado.next()) {
+    String evento = listado.getString("evento");
+    String nombre = listado.getString("nombre");
+    String correo = listado.getString("correo");
+    String telefono = listado.getString("telefono");
+    String localidad = listado.getString("localidad");
+    String fecha = listado.getString("fecha_inicio");
+
+    if (eventoActual == null || !eventoActual.equals(evento)) {
+        eventoActual = evento;
+        System.out.println("\n>> " + eventoActual + " <<");
+    }
+    System.out.println("   " + nombre + " | " + correo + " | " + telefono + " | " + localidad + " | " + fecha);
+}
+listado.close();
+
+
     // Cierra la conexión con la base de datos (libera recursos)
     connection.close();
 

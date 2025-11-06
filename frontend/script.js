@@ -1,5 +1,5 @@
 
-const texto = "Conferencias a las que puedes asistir";
+const texto = "Amamos lo que hacemos";
 let i = 0;
 
 

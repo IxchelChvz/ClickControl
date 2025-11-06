@@ -36,24 +36,16 @@
             </div>
         </div>
     </fieldset>
-
-    <fieldset>
-        <legend>Información del Evento</legend>
-        <div class="grupo">
-            <div>
-                <label>Tipo de evento *</label>
-                <select name="eventos[]" id="eventos" multiple required>
-                    <option value="">Seleccione...</option>
-                    <option value="Conferencia">Conferencia de programadores Web</option>
-                    <option value="Seminario">Seminario de IA</option>
-                    <option value="Hackathon">Evento Hackathon</option>
-                    <option value="Feria tecnológica">Feria tecnológica</option>
-                </select>
-            </div>
-            <div>
-                <label>Fecha seleccionada *</label>
-                <input type="date" name="fecha" id="fecha" required>
-            </div>
+<fieldset>
+    <legend>eventos</legend>
+    <div>
+      <label>Tipo de evento *</label>
+     <div name="eventos" id="eventos">
+    <label><input type="checkbox" name="eventos[]" value="Conferencia"> Conferencia de programadores Web</label><br>
+    <label><input type="checkbox" name="eventos[]" value="Seminario"> Seminario de IA</label><br>
+    <label><input type="checkbox" name="eventos[]" value="Hackathon"> Evento Hackathon</label><br>
+    <label><input type="checkbox" name="eventos[]" value="Feria tecnológica"> Feria tecnológica</label>
+      </div>
         </div>
     </fieldset>
 

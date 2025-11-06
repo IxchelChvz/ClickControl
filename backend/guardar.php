@@ -9,20 +9,18 @@ $dbname = "eventos";
 
 if (isset($_POST["nombre"])&& isset($_POST["eventos"]) &&
     isset($_POST["correo"]) && isset($_POST["telefono"]) &&
-    isset($_POST["fecha"]) && isset($_POST["localidad"])
+    isset($_POST["localidad"])
     ) {
 
 
     $nombre = $_POST["nombre"];
-	$fecha = $_POST["fecha"];
-    $eventos = $_POST["eventos"];
+    $eventos = implode(", ", $_POST["eventos"]);
     $correo = $_POST["correo"];
     $localidad = $_POST["localidad"];
     $telefono = $_POST["telefono"];
 } else {
     $nombre = "";
     $eventos = "";
-    $fecha = "";
     $correo = "";
     $localidad = "";
     $telefono = "";
@@ -36,14 +34,14 @@ die("Error de conexión: " . $conn->connect_error);
 }
 
 
-if ($nombre === "" || $correo === "" || $eventos === "" || $telefono === "" ||$fecha === "" || $localidad === "") {
+if ($nombre === "" || $correo === "" || $eventos === "" || $telefono === "" || $localidad === "") {
 	die("Todos los campos son obligatorios");
 }
 
 
 echo "Valor del evento recibido: " . $eventos;
 
-$sql = "INSERT INTO inscripciones (nombre, evento,correo,telefono,localidad,fecha_inicio) VALUES ('$nombre','$eventos','$correo','$telefono','$localidad','$fecha')";
+$sql = "INSERT INTO inscripciones (nombre, evento,correo,telefono,localidad) VALUES ('$nombre','$eventos','$correo','$telefono','$localidad')";
 
 if ($conn->query($sql) === TRUE) {
     echo "<h2>¡Registro correcto!</h2>";
@@ -51,7 +49,6 @@ if ($conn->query($sql) === TRUE) {
     echo "<p>correo insertado: " . $correo . "</p>";
     echo "<p>localidad insertado: " . $localidad . "</p>";
     echo "<p>telefono insertado: " . $telefono . "</p>";
-    echo "<p>fecha de inicio insertada: " . $fecha . "</p>";
     echo "Valor del evento recibido: " . $eventos;
     echo "<p>Evento: $eventos</p>";
 } else {

@@ -1,0 +1,149 @@
+ /* ======= Estilos generales ======= */
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        font-family: 'Poppins', sans-serif;
+        background: linear-gradient(to bottom right, #000000, #114C4D);
+        color: #000000;
+        line-height: 1.6;
+    }
+
+    header {
+        background: linear-gradient(90deg, #020202, #ed0a78);
+        color: white;
+        padding: 40px 20px;
+        text-align: center;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    header h1 {
+        font-size: 2.5em;
+        letter-spacing: 1px;
+        animation: fadeInDown 1s ease-in-out;
+    }
+
+    header p {
+        font-size: 1.1em;
+        margin-top: 10px;
+        opacity: 0.9;
+    }
+
+    /* ======= Contenido principal ======= */
+    main {
+        max-width: 1100px;
+        margin: 40px auto;
+        background: white;
+        padding: 40px;
+        border-radius: 15px;
+        box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+        animation: fadeInUp 1.2s ease;
+    }
+
+    h2 {
+        color: #000000;
+        border-left: 6px solid #ED0A78;
+        padding-left: 10px;
+        margin-bottom: 15px;
+    }
+
+    p {
+        margin-bottom: 20px;
+        text-align: justify;
+    }
+
+    /* ======= Sección de misión y visión ======= */
+    .valores {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 20px;
+        margin-top: 30px;
+    }
+
+    .caja {
+        background: #f3f6ff;
+        border-radius: 10px;
+        padding: 20px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border: 1px solid #dbe3ff;
+    }
+
+    .caja:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .caja h3 {
+        color: #000000;
+        margin-bottom: 10px;
+    }
+
+    /* ======= Sección de equipo ======= */
+    .equipo {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+        gap: 25px;
+        margin-top: 40px;
+    }
+
+    .miembro {
+        background: linear-gradient(to bottom right, #eef2ff, #ffffff);
+        text-align: center;
+        border-radius: 15px;
+        padding: 20px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border: 1px solid #dbe3ff;
+    }
+
+    .miembro:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+    }
+
+    .miembro img {
+        width: 110px;
+        height: 110px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-bottom: 15px;
+        border: 4px solid #114C4D;
+        transition: transform 0.3s ease;
+    }
+
+    .miembro:hover img {
+        transform: scale(1.05);
+    }
+
+    .miembro h3 {
+        color: #114C4D;
+        margin-bottom: 8px;
+    }
+
+    .miembro p {
+        font-size: 0.95em;
+    }
+
+    /* ======= Pie de página ======= */
+    footer {
+        text-align: center;
+        background: #114C4D;
+        color: white;
+        padding: 20px;
+        margin-top: 50px;
+        font-size: 0.9em;
+        letter-spacing: 0.5px;
+    }
+
+    /* ======= Animaciones ======= */
+    @keyframes fadeInUp {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInDown {
+        from { opacity: 0; transform: translateY(-20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
